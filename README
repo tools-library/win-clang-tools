@@ -1,1 +1,44 @@
-Website : clang.llvm.org
+
+                        C L A N G   T O O L S
+
+    'CLANG TOOLS' are standalone command line tools designed for
+     use by C++ developers. These tools provide developer-oriented
+     functionality such as fast syntax checking, automatic
+     formatting, refactoring, etc.
+
+     Website https://clang.llvm.org
+
+     After running the setup.cmd, the tools will be
+     available in the system path.
+
+TOOL   : CLANG TOOLS
+VERSION: LLVM 10.0.0
+ARCH   : x32
+
+USAGE:
+    setup.cmd [-h|--help|--pack|--unpack]
+
+EXAMPLES:
+    setup.cmd
+    setup.cmd -h
+    setup.cmd --pack
+
+ARGUMENTS:
+    -h|--help    Print this help and exit.
+
+    --pack    Pack the content of the software folder in one
+        self-extract executable called 'software.exe'.
+
+    --unpack    Unpack the self-extract executable 'software.exe'
+        to the software folder.
+
+EXPORTED ENVIRONMENT VARIABLES:
+    TOOLSET_CLANG_TOOLS_PATH    Absolute path where this tool is
+        located.
+
+    PATH    This tool will export all local changes that it made to
+        the path's environment variable.
+
+    The environment variables will be exported only if this tool
+    executes without any error.
+

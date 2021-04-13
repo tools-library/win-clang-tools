@@ -4,21 +4,22 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 
 :PROCESS_CMD
+    REM Load dependent tools...
+    CALL "%utility_folder%..\win-utils\setup.cmd" cecho 7zip
+
     SET "utility_folder=%~dp0"
     SET "utility_software_folder=%utility_folder%software"
     SET "utility_sfx=%utility_folder%software.exe"
-
-    CALL "%utility_folder%..\win-utils\setup.cmd" cecho 7zip
 
     SET help_arg=false
     SET pack_arg=false
     SET unpack_arg=false
 
-    SET current_arg=%1
-    IF  [%current_arg%] EQU [-h]       SET help_arg=true
-    IF  [%current_arg%] EQU [--help]   SET help_arg=true
-    IF  [%current_arg%] EQU [--pack]   SET pack_arg=true
-    IF  [%current_arg%] EQU [--unpack] SET unpack_arg=true
+    SET first_arg=%1
+    IF  [%first_arg%] EQU [-h]       SET help_arg=true
+    IF  [%first_arg%] EQU [--help]   SET help_arg=true
+    IF  [%first_arg%] EQU [--pack]   SET pack_arg=true
+    IF  [%first_arg%] EQU [--unpack] SET unpack_arg=true
 
     IF  [%help_arg%] EQU [true] (
         CALL :SHOW_HELP
@@ -78,11 +79,11 @@ EXIT /B 0
 
 
 :SHOW_INFO
-    cecho {olive}[TOOLSET - UTILS - CLANG TOOLS]{default} INFO: %~1{\n}
+    cecho {olive}[TOOLSET - CLANG TOOLS]{default} INFO: %~1{\n}
 EXIT /B 0
 
 :SHOW_ERROR
-    cecho {olive}[TOOLSET - UTILS - CLANG TOOLS]{red} ERROR: %~1 {default} {\n}
+    cecho {olive}[TOOLSET - CLANG TOOLS]{red} ERROR: %~1 {default} {\n}
 EXIT /B 0
 
 
@@ -97,6 +98,11 @@ EXIT /B 0
     ECHO #     use by C++ developers. These tools provide developer-oriented   #
     ECHO #     functionality such as fast syntax checking, automatic           #
     ECHO #     formatting, refactoring, etc.                                   #
+    ECHO #                                                                     #
+    ECHO #     Website https://clang.llvm.org                                  #
+    ECHO #                                                                     #
+    ECHO #     After running the %SCRIPT_NAME%, the tools will be                  #
+    ECHO #     available in the system path.                                   #
     ECHO #                                                                     #
     ECHO # TOOL   : CLANG TOOLS                                                #
     ECHO # VERSION: LLVM 10.0.0                                                #

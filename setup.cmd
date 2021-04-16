@@ -4,12 +4,12 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 
 :PROCESS_CMD
-    REM Load dependent tools...
-    CALL "%utility_folder%..\win-utils\setup.cmd" cecho 7zip
-
     SET "utility_folder=%~dp0"
     SET "utility_software_folder=%utility_folder%software"
     SET "utility_sfx=%utility_folder%software.exe"
+
+    REM Load dependent tools...
+    CALL "%utility_folder%..\win-utils\setup.cmd" cecho 7zip
 
     SET help_arg=false
     SET pack_arg=false

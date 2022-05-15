@@ -105,8 +105,8 @@ EXIT /B 0
     ECHO #     available in the system path.                                   #
     ECHO #                                                                     #
     ECHO # TOOL   : CLANG TOOLS                                                #
-    ECHO # VERSION: LLVM 10.0.0                                                #
-    ECHO # ARCH   : x32                                                        #
+    ECHO # VERSION: LLVM 14.0.0                                                #
+    ECHO # ARCH   : x64                                                        #
     ECHO #                                                                     #
     ECHO # USAGE:                                                              #
     ECHO #     %SCRIPT_NAME% [-h^|--help^|--pack^|--unpack]                           #
